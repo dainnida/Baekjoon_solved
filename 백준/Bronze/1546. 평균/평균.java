@@ -1,4 +1,4 @@
-// 배열 사용
+// 배열 + Math 함수(최댓값) 사용
 import java.io.*;
 import java.util.StringTokenizer;
 

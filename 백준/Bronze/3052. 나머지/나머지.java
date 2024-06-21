@@ -1,21 +1,16 @@
-//배열 사용
+//BufferedReader + HashSet 사용
 import java.io.*;
+import java.util.HashSet;
 
 public class Main{
     public static void main(String[] args) throws IOException{
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int[] arr = new int[42];
+        HashSet<Integer> hs = new HashSet<Integer>();
         
         for(int i=0; i<10; i++){
             int mod = Integer.parseInt(br.readLine()) % 42;
-            arr[mod] = 1;
+            hs.add(mod);
         }
-        
-        int count = 0;
-        for(int i=0; i<42; i++){
-            if(arr[i] == 1)
-                count++;
-        }
-        System.out.println(count);
+        System.out.println(hs.size());
     }
 }

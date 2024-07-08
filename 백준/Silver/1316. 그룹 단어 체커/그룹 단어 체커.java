@@ -8,17 +8,17 @@ public class Main {
 
         for(int i=0; i<N; i++){
             String str = br.readLine();
-            int[] arr = new int[26];
+            boolean[] arr = new boolean[26];
 
             for(int j=0; j<str.length(); j++){
                 if(j>0 && str.charAt(j-1) == str.charAt(j))
                     continue;
-                if(arr[str.charAt(j)-97] == 1){
+                if(arr[str.charAt(j)-97]){
                     count--;
                     break;
                 }
                 else
-                    arr[str.charAt(j)-97] = 1;
+                    arr[str.charAt(j)-97] = true;
             }
         }
         System.out.println(count);

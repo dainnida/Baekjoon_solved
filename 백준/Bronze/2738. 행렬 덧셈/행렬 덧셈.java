@@ -9,14 +9,12 @@ public class Main {
         int M = Integer.parseInt(st.nextToken());
         int[][] arr = new int[N][M];
 
-        for(int i=0; i<N*2; i++){
-            st = new StringTokenizer(br.readLine(), " ");
-            int tmp = i;
-            if(i>=N)
-                tmp -= N;
-
-            for(int j=0; j<M; j++){
-                arr[tmp][j] += Integer.parseInt(st.nextToken());
+        for(int k=0; k<2; k++){
+            for(int i=0; i<N; i++){
+                st = new StringTokenizer(br.readLine(), " ");
+                for(int j=0; j<M; j++){
+                    arr[i][j] += Integer.parseInt(st.nextToken());
+                }
             }
         }
 

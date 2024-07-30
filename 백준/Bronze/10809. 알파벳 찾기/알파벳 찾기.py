@@ -1,8 +1,8 @@
 S = input()
-nums = [-1] * 26
+alp = "abcdefghijklmnopqrstuvwxyz"
 
-for i in range(len(S)):
-    if nums[ord(S[i])-97] == -1:
-        nums[ord(S[i])-97] = i
-
-print(*nums)
+for i in alp:
+    if i in S:
+        print(S.index(i), end=' ')
+    else:
+        print(-1, end=' ')

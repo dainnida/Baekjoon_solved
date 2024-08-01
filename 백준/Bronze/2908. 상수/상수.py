@@ -1,15 +1,7 @@
-A, B = input().split()
-
-A = list(A)
+A, B = map(list, input().split())
 A.reverse()
 A = ''.join(A)
-
-B = list(B)
 B.reverse()
 B = ''.join(B)
 
-# if A>B:
-#     print(A)
-# else:
-#     print(B)
 print(max(A, B))

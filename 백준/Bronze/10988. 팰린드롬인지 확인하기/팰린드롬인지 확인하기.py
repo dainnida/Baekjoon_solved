@@ -1,6 +1,6 @@
-str = input()
+str = list(input())
 
-if str == str[::-1]:
+if str == list(reversed(str)):
     print(1)
 else:
     print(0)

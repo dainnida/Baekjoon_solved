@@ -1,17 +1,13 @@
-str = input()
-str = str.upper()
-count = [0 for i in range(26)]
-max = -1
-result = ''
+word = input().upper()
+word_list = list(set(word))
 
-for i in str:
-    count[ord(i)-65] += 1
+lst = []
+for i in word_list:
+  count = word.count(i)
+  lst.append(count)
 
-for i in range(26):
-    if count[i] > max:
-        max = count[i]
-        result = chr(i+65)
-    elif count[i] == max:
-        result = '?'
+if lst.count(max(lst)) > 1:
+  print("?")
 
-print(result)
+else:
+  print(word_list[(lst.index(max(lst)))])

@@ -4,10 +4,9 @@ result = 0
 sum = 0
 
 for _ in range(20):
-    subject, credit, grade = map(str, input().split())
-    if grade == "P":
-        continue
-    result += float(credit) * creditList[gradeList.index(grade)] # find는 리스트 사용 불가!
-    sum += float(credit)
+    subject, credit, grade = input().split()
+    if grade != "P":
+        result += float(credit) * creditList[gradeList.index(grade)] # find는 리스트 사용 불가!
+        sum += float(credit)
 
 print(result/sum)

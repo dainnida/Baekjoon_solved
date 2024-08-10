@@ -1,15 +1,11 @@
 num = int(input())
 count = num
 
-for i in range(num):
+for _ in range(num):
     word = input()
-    char = ''
-    alphabet = []
-    for j in word:
-        if j in alphabet and char != j:
+    for i in range(len(word)-1):
+        if word[i] in word[i+1:] and word[i] != word[i+1]:
             count -= 1
             break
-        alphabet.append(j)
-        char = j
 
 print(count)

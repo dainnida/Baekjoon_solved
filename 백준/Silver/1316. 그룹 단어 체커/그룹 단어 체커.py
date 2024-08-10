@@ -1,13 +1,15 @@
-N = int(input())
-group_word = N
+num = int(input())
+count = num
 
-for i in range(N) :
+for i in range(num):
     word = input()
-    for j in range(len(word)-1) :
-        if word[j] == word[j+1] :
-            continue
-        elif word[j] in word[j+1:] :
-            group_word -= 1
+    char = ''
+    alphabet = []
+    for j in word:
+        if j in alphabet and char != j:
+            count -= 1
             break
-            
-print(group_word)
+        alphabet.append(j)
+        char = j
+
+print(count)

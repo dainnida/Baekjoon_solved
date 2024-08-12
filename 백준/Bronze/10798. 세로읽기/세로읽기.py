@@ -1,9 +1,4 @@
-arr = []
-
-for i in range(5):
-    lst = input()
-    arr.append(lst)
-
+arr = [input() for i in range(5)]
 
 for j in range(15):
     for i in range(5):

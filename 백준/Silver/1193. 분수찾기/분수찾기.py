@@ -1,12 +1,11 @@
 num = int(input())
-i = 1
-sum = 1
+i = 0
 
-while num > sum:
+while num > 0:
     i += 1
-    sum += i
+    num -= i
 
-j = sum - num + 1
+j = - num + 1
 if i % 2 != 0:
     print(j, '/', i+1-j, sep='')
 else:

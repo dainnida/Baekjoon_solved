@@ -3,14 +3,13 @@ point_b = []
 
 for _ in range(3):
     a, b = map(int, input().split())
-    if a not in point_a:
-        point_a.append(a)
-    else:
-        point_a.remove(a)
+    point_a.append(a)
+    point_b.append(b)
 
-    if b not in point_b:
-        point_b.append(b)
-    else:
-        point_b.remove(b)
+for i in range(3):
+    if point_a.count(point_a[i]) == 1:
+        x = point_a[i]
+    if point_b.count(point_b[i]) == 1:
+        y = point_b[i]
 
-print(*point_a, *point_b)
+print(x, y)

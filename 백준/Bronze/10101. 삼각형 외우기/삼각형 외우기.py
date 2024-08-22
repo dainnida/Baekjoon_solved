@@ -1,10 +1,13 @@
-angle = [int(input()) for _ in range(3)]
+a = int(input())
+b = int(input())
+c = int(input())
 
-if angle.count(60) == 3:
-    print("Equilateral")
-elif sum(angle) == 180 and len(set(angle)) == 2:
-    print("Isosceles")
-elif sum(angle) == 180 and len(set(angle)) == 3:
-    print("Scalene")
+if a+b+c == 180:
+    if a == b == c:
+        print("Equilateral")
+    elif a==b or b==c or a==c:
+        print("Isosceles")
+    else:
+        print("Scalene")
 else:
     print("Error")

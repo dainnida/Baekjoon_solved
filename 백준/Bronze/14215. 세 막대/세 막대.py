@@ -1,6 +1,6 @@
-a, b, c = map(int, input().split())
+a, b, c = sorted(map(int, input().split()))
 
-if max(a, b, c) < a + b + c - max(a, b, c):
+if c < a + b:
     print(a+b+c)
 else:
-    print((a + b + c - max(a, b, c))*2 - 1)
+    print((a+b)*2 - 1)

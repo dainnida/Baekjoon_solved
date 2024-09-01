@@ -1,15 +1,12 @@
 N = int(input())
-result = 1000001
 
-for i in range(1, N):
-    num = list(map(int, str(i)))
-    sum = i
-    for j in range(len(num)):
-        sum += num[j]
-    if sum == N:
-        result = min(result, i)
+for i in range(1, N+1):
+    num = sum(map(int, str(i)))
+    num += i
+    if num == N:
+        print(i)
+        break
 
-if result == 1000001:
+
+if i == N:
     print(0)
-else:
-    print(result)

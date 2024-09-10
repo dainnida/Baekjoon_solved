@@ -8,6 +8,7 @@ for _ in range(N):
     if word not in words:
         words.append(word)
 
-words.sort(key = lambda x: (len(x), x))
+words.sort()
+words.sort(key = len)
 
 print(*words, sep='\n')

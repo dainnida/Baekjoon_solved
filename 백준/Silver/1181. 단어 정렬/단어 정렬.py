@@ -5,9 +5,9 @@ words = []
 
 for _ in range(N):
     word = sys.stdin.readline().strip()
-    if word not in words:
-        words.append(word)
+    words.append(word)
 
+words = list(set(words))
 words.sort()
 words.sort(key = len)
 

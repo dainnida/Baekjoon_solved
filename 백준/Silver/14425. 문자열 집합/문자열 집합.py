@@ -1,12 +1,15 @@
 import sys
-input = sys.stdin.readline
+
 N, M = map(int, input().split())
-S = set()
-for i in range(N):
-    S.add(input())
-ans = 0
+dic = {}
+count = 0
+
+for _ in range(N):
+    dic[sys.stdin.readline()] = 1
+
 for _ in range(M):
-    t = input()
-    if t in S:
-        ans+=1
-print(ans)
+    check = sys.stdin.readline()
+    if check in dic:
+        count += 1
+
+print(count)

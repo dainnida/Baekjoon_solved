@@ -1,6 +1,6 @@
 import sys
 
-def gcd(a, b):
+def gcd(a, b): # 유클리드 호제법
     while b>0:
         a, b = b, a%b
     return a

@@ -15,7 +15,9 @@ n = int(sys.stdin.readline())
 while n != 0:
     cnt = 0
     for i in prime:
-        if n < i <= 2*n:
+        if 2*n < i:
+            break
+        if n < i:
             cnt += 1
     print(cnt)
     n = int(sys.stdin.readline())

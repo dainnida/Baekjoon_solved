@@ -6,16 +6,16 @@ def isPrime(num):
             return False
     return True
 
-prime = set()
+prime = []
 for i in range(2, 123456*2+1):
     if isPrime(i):
-        prime.add(i)
+        prime.append(i)
 
 n = int(sys.stdin.readline())
 while n != 0:
     cnt = 0
-    for i in range(n+1, 2*n+1):
-        if i in prime:
+    for i in prime:
+        if n < i <= 2*n:
             cnt += 1
     print(cnt)
     n = int(sys.stdin.readline())

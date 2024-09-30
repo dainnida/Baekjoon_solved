@@ -6,18 +6,13 @@ def isPrime(num):
             return False
     return True
 
-prime = []
+prime = [0]*(123456*2+2) #0부터 123456*2+1까지
 for i in range(2, 123456*2+1):
     if isPrime(i):
-        prime.append(i)
+        prime[i] = 1
 
 n = int(sys.stdin.readline())
 while n != 0:
     cnt = 0
-    for i in prime:
-        if 2*n < i:
-            break
-        if n < i:
-            cnt += 1
-    print(cnt)
+    print(sum(prime[n+1:2*n+1]))
     n = int(sys.stdin.readline())

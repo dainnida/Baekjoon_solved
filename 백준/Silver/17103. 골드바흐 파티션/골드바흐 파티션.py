@@ -10,7 +10,7 @@ T = int(sys.stdin.readline())
 for _ in range(T):
     N = int(sys.stdin.readline())
     cnt = 0
-    for i in range(1, N//2+1):
+    for i in range(2, N//2+1):
         if prime[i] == 1 and prime[N-i] == 1:
                 cnt += 1
     print(cnt)

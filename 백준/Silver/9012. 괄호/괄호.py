@@ -10,9 +10,9 @@ for _ in range(T):
 
     stack = []
     for i in num:
-        if not stack:
+        if not stack: # 비어 있다면
             if i == ')':
-                stack.append(0)
+                print("NO")
                 break
             stack.append(i)
         else:
@@ -20,7 +20,8 @@ for _ in range(T):
                 stack.pop()
             else:
                 stack.append(i)
-    if not stack:
-        print("YES")
     else:
-        print("NO")
+        if not stack:
+            print("YES")
+        else:
+            print("NO")

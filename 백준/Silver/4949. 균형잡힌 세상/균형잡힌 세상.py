@@ -1,6 +1,6 @@
 import sys
 
-sentence = input()
+sentence = sys.stdin.readline().rstrip()
 while sentence != '.':
     sentence = list(sentence.split())
     stack = []
@@ -28,4 +28,4 @@ while sentence != '.':
         print("yes")
     else:
         print("no")
-    sentence = input()
+    sentence = sys.stdin.readline().rstrip()

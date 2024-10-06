@@ -1,12 +1,14 @@
 import sys
-from collections import deque
 input = sys.stdin.readline
 
 N = int(input())
-queue = deque(i+1 for i in range(N))
+temp = N
+num = 0
+while temp != 1:
+    num += 1
+    temp //= 2
 
-while len(queue) != 1:
-    queue.popleft()
-    queue.append(queue.popleft())
-
-print(queue[0])
+if N%(2**num) == 0:
+    print(2**num)
+else:
+    print(2*(N%(2**num)))

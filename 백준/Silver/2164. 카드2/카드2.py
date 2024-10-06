@@ -1,12 +1,8 @@
-import sys
+import sys, math
 input = sys.stdin.readline
 
 N = int(input())
-temp = N
-num = 0
-while temp != 1:
-    num += 1
-    temp //= 2
+num = int(math.log2(N))
 
 if N%(2**num) == 0:
     print(2**num)

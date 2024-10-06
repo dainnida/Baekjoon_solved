@@ -4,7 +4,8 @@ input = sys.stdin.readline
 N = int(input())
 num = int(math.log2(N))
 
-if N%(2**num) == 0:
-    print(2**num)
+result = 2*(N-(2**num))
+if result == 0:
+    print(N)
 else:
-    print(2*(N%(2**num)))
+    print(result)

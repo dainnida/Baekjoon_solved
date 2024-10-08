@@ -10,8 +10,6 @@ res = []
 for _ in range(N):
     for _ in range(K-1):
         queue.append(queue.popleft())
-    res.append(queue.popleft())
+    res.append(str(queue.popleft()))
 
-print('<', end='')
-print(*res, sep=', ', end='')
-print('>', end='')
+print('<' + ', '.join(res) + '>')

@@ -1,21 +1,17 @@
 import sys
+from collections import deque
 input = sys.stdin.readline
 
 N, K = map(int, input().split())
-num = 0
-len = N
+queue = deque([i+1 for i in range(N)])
+res = []
 
-list = [i+1 for i in range(N)]
-
-print('<', end='')
 
 for _ in range(N):
-    num += K-1
-    while num >= len:
-        num -= len
-    print(list.pop(num), end='')
-    len -= 1
-    if len != 0:
-        print(', ', end='')
+    for _ in range(K-1):
+        queue.append(queue.popleft())
+    res.append(queue.popleft())
 
+print('<', end='')
+print(*res, sep=', ', end='')
 print('>', end='')

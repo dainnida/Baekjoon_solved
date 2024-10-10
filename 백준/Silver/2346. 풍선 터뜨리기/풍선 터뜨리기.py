@@ -3,19 +3,21 @@ from collections import deque
 input = sys.stdin.readline
 
 N = int(input())
-num = list(map(int, input().split()))
-queue = deque([i+1 for i in range(N)])
+queue = deque(enumerate(map(int, input().split())))
 result = []
 
-result.append(queue.popleft())
+
+balloon, paper = queue.popleft()
+result.append(balloon+1)
 while queue:
-    if num[result[-1]-1] > 0:
-        for _ in range(num[result[-1]-1] - 1):
+    if paper > 0:
+        for _ in range(paper - 1):
             queue.append(queue.popleft())
-        result.append(queue.popleft())
+        balloon, paper = queue.popleft()
     else:
-        for _ in range(-(num[result[-1]-1]) - 1):
+        for _ in range(-paper - 1):
             queue.appendleft(queue.pop())
-        result.append(queue.pop())
+        balloon, paper = queue.pop()
+    result.append(balloon+1)
 
 print(*result)

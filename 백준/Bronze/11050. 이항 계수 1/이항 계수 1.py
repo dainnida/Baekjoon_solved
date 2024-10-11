@@ -1,8 +1,11 @@
 import sys
-from itertools import combinations
 input = sys.stdin.readline
 
 N, K = map(int, input().split())
 
-n = [i+1 for i in range(N)]
-print(len(list(combinations(n, K))))
+def factorial(n):
+    if n==0:
+        return 1
+    return n*factorial(n-1)
+
+print(factorial(N) // (factorial(K)*factorial(N-K)))

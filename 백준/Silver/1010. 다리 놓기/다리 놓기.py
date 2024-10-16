@@ -1,13 +1,13 @@
 import sys
-from itertools import combinations
+from math import factorial
 input = sys.stdin.readline
 
 T = int(input())
 
-def factorial(n):
-    if n==0:
-        return 1
-    return n*factorial(n-1)
+# def factorial(n):
+#     if n==0:
+#         return 1
+#     return n*factorial(n-1)
 
 for _ in range(T):
     N, M = map(int, input().split())

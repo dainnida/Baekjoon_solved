@@ -1,9 +1,18 @@
-import sys, itertools
+import sys
 input = sys.stdin.readline
 
 N, M = map(int, input().split())
-lst = [i+1 for i in range(N)]
+lst = []
 
-nPr = itertools.permutations(lst, M)
-for i in nPr:
-    print(*i)
+def backtracking():
+    if len(lst) == M:
+        print(*lst)
+        return
+    
+    for i in range(1, N+1):
+        if i not in lst:
+            lst.append(i)
+            backtracking()
+            lst.pop()
+
+backtracking()

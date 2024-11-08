@@ -7,10 +7,11 @@ cnt = 0
 
 for _ in range(N):
     coin.append(int(input()))
+coin.reverse()
 
-for i in range(N-1, -1, -1):
-    if K >= coin[i]:
-        cnt += K // coin[i]
-        K %= coin[i]
+for i in coin:
+    if K >= i:
+        cnt += K // i
+        K %= i
 
 print(cnt)

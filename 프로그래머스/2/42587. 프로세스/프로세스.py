@@ -12,6 +12,4 @@ def solution(priorities, location):
         else:
             answer += 1
             if process[1] == location:
-                break
-            
-    return answer
+                return answer

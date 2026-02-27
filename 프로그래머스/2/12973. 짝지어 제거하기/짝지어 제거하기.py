@@ -6,6 +6,5 @@ def solution(s):
             stack.pop()
         else:
             stack.append(ch)
-    if stack:
-        return 0
-    return 1
+            
+    return 0 if stack else 1

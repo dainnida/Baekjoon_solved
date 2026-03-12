@@ -7,7 +7,7 @@ def solution(s):
     for i in range(lngth):
         stack = []
         for j in range(i, i+lngth):
-            if s[j] == "(" or s[j] == "[" or s[j] == "{":
+            if s[j] in "([{":
                 stack.append(s[j])
             elif stack:
                 if ( (stack[-1] == "(" and s[j] == ")")

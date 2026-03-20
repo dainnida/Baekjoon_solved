@@ -2,17 +2,16 @@ from collections import Counter
 
 def solution(topping):
     answer = 0
-    set_right = Counter(topping)
-    set_left = set()
-    count_right = len(set_right)
+    right_set = Counter(topping)
+    left_set = set()
     
     for t in topping:
-        set_right[t] -= 1
-        if (set_right[t] == 0):
-            count_right -= 1
-        set_left.add(t)
+        right_set[t] -= 1
+        if (right_set[t] == 0):
+            right_set.pop(t)
+        left_set.add(t)
         
-        if count_right == len(set_left):
+        if len(right_set) == len(left_set):
             answer += 1
         
     return answer

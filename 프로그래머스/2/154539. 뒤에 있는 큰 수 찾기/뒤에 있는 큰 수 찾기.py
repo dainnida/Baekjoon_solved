@@ -4,8 +4,7 @@ def solution(numbers):
     
     for i in range(len(numbers)):
         while stack and numbers[stack[-1]] < numbers[i]:
-            idx = stack.pop()
-            answer[idx] = numbers[i]
+            answer[stack.pop()] = numbers[i]
         stack.append(i)
             
     return answer

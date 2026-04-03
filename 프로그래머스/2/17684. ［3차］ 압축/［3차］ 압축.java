@@ -13,12 +13,13 @@ while (n < msg.length()) {
             int nextN = n + 1;
             
             while (nextN < msg.length()) {
-                char nextChar = msg.charAt(nextN);
-                if (!dic.containsKey(tmp + nextChar)) {
-                    break; 
-                }
-                tmp += nextChar;
-                nextN++;
+                String nextTmp = tmp + msg.charAt(nextN);
+                
+                if (dic.containsKey(nextTmp)) {
+                    tmp = nextTmp;
+                    nextN++;
+                } else
+                    break;
             }
             
             answer.add(dic.get(tmp));

@@ -1,24 +1,24 @@
 from itertools import permutations
+import math
 
-def is_prime(num):
-    if num < 2:
+def is_prime(n):
+    if n == 0 or n == 1:
         return False
-    for i in range(2, int(num**1/2)+1):
-        if num % i == 0:
+    for i in range(2, int(math.sqrt(n))+1):
+        if (n % i == 0):
             return False
     return True
-    
-def solution(numbers):
-    answer = 0
-    papers = list(numbers)
-    made = set()
-    
-    for i in range(1, len(papers)+1):
-        for perm in permutations(papers, i):
-            tmp= int(''.join(perm))
-            made.add(tmp)
 
-    for num in made:
-        if is_prime(num):
-            answer += 1
-    return answer
+def solution(numbers):
+    answer = []
+    papers = []
+    for i in range(1, len(numbers)+1):
+        papers += list(permutations(list(numbers), i))
+    
+    for paper in papers:
+        paper = int(''.join(paper))
+        if is_prime(paper):
+            answer.append(paper)
+    
+    answer = list(set(answer))
+    return len(answer)

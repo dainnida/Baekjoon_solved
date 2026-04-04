@@ -20,10 +20,5 @@ def solution(bridge_length, weight, truck_weights):
         else:
             trucks.appendleft(0)
             bridge_weight -= out
-        
-    # 다리 위로 다 올라감
-    while bridge_weight != 0:
-        bridge_weight -= trucks.pop()
-        answer += 1
-        
-    return answer
+
+    return answer + bridge_length

@@ -15,7 +15,7 @@ class Solution {
     }
     
     public String solution(int n, int t, int m, int p) {
-        String answer = "";
+        StringBuilder answer = new StringBuilder();
         int count = 0;  // n진수로 바꾸어야 할 수
         int total = 1;  //n진수로 바꾼 길이의 총 합
         while (answer.length() <= t) {
@@ -23,11 +23,11 @@ class Solution {
             String strN = Integer.toString(count, n);
             for (int i=0; i<strN.length(); i++) {
                 if ((total+i) % m == p % m) // m=p일 때를 위해
-                    answer += strN.charAt(i);
+                    answer.append(strN.charAt(i));
             }
             count++;
             total += strN.length();
         }
-        return answer.toUpperCase().substring(0, t);
+        return answer.toString().toUpperCase().substring(0, t);
     }
 }

@@ -3,10 +3,9 @@ from collections import deque
 def solution(order):
     answer = 0
     order = deque(order)
-    main = deque([i for i in range(1, len(order)+1)])
     assis = []
     
-    for box in main:
+    for box in range(1, len(order)+1):
         if box == order[0]:
             order.popleft()
             answer += 1

@@ -24,14 +24,4 @@ def solution(order):
         else:
             break
             
-    # for box in order:
-    #     if box == main[0]:
-    #         main.popleft()
-    #         answer += 1
-    #     elif assis and box == assis[-1]:
-    #         assis.pop()
-    #         answer += 1
-    #     elif main:
-    #         assis.append(main.popleft())
-            
     return answer

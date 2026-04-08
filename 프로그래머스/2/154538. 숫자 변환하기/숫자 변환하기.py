@@ -12,7 +12,7 @@ def solution(x, y, n):
         for node in [curr+n, curr*2, curr*3]:
             if node == y:
                 return count+1
-            elif node <= y and node not in visited:
+            elif node < y and node not in visited:
                 visited.add(node)
                 q.append((node, count+1))
 

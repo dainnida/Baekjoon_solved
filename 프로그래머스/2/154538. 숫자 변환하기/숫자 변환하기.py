@@ -1,7 +1,7 @@
 from collections import deque
 
 def solution(x, y, n):
-    visited =  set()
+    visited = set()
     q = deque([(x, 0)])
     visited.add(x)
     

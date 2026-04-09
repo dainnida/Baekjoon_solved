@@ -7,7 +7,8 @@ class Solution {
                 if (skill.contains(tree.charAt(i)+""))
                     filtered_skills += tree.charAt(i);
             }
-            if (filtered_skills.equals(skill.substring(0, filtered_skills.length())))
+            // if (filtered_skills.equals(skill.substring(0, filtered_skills.length())))
+            if (skill.indexOf(filtered_skills) == 0)
                 answer++;
         }
         return answer;

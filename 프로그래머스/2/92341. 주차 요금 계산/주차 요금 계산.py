@@ -23,7 +23,7 @@ def solution(fees, records):
     for number in sorted(accum.keys()):
         minutes = accum[number]
         if minutes > fees[0]:
-            answer.append(fees[1] + math.ceil((minutes - fees[0]) / fees[2]) * fees[3])
+            answer.add(fees[1] + math.ceil((minutes - fees[0]) / fees[2]) * fees[3])
         else:
-            answer.append(fees[1])
+            answer.add(fees[1])
     return answer

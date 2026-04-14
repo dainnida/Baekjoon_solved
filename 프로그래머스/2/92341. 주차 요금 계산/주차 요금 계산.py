@@ -3,7 +3,7 @@ import math
 
 def solution(fees, records):
     answer = []
-    datas = defaultdict(list)   
+    in_time = {}
     accum = defaultdict(int) 
     
     for record in records:
@@ -11,21 +11,19 @@ def solution(fees, records):
         hour, minute = map(int, time.split(":"))
         minutes = 60*hour + minute
         
-        datas[number].append(minutes)
+        if action == "IN":
+            in_time[number] = minutes
+        else:
+            accum[number] += minutes - in_time.pop(number)
     
-    for number, stack in datas.items():
-        if len(stack) % 2 != 0:
-            m = stack.pop()
-            accum[number] = 60*23+59 - m
-        while stack:
-            m2 = stack.pop()
-            m1 = stack.pop()
-            accum[number] += m2 - m1            
-    accum = dict(sorted(accum.items()))
+    # 아직 출차하지 않은 차들
+    for number, minutes in in_time.items():
+        accum[number] += 60*23+59 - minutes
     
-    for a in accum.values():
-        if a > fees[0]:
-            answer.append(fees[1] + math.ceil((a - fees[0]) / fees[2]) * fees[3])
+    for number in sorted(accum.keys()):
+        minutes = accum[number]
+        if minutes > fees[0]:
+            answer.append(fees[1] + math.ceil((minutes - fees[0]) / fees[2]) * fees[3])
         else:
             answer.append(fees[1])
     return answer

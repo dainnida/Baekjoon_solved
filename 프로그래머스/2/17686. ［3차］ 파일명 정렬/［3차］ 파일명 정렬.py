@@ -1,6 +1,5 @@
 def solution(files):
     answer = []
-    dic = {}
     for idx, file in enumerate(files):
         for i, f in enumerate(file):
             if f.isdecimal():

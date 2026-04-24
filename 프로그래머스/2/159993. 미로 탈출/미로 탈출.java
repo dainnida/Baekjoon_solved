@@ -61,9 +61,6 @@ class Solution {
                 if (0 <= dx && dx < n && 0 <= dy && dy < m && boards[dx][dy] != 0 && dp[dx][dy][1] == 0) {
                     dp[dx][dy][1] = dp[x][y][1] + 1;
                     q.offer(new int[]{dx, dy});
-                    System.out.print(dx);
-                    System.out.print(dy);
-                    System.out.println(dp[dx][dy][1]);
                 }
             }
         }

@@ -5,9 +5,6 @@ class Solution {
         int n = maps.length;
         int m = maps[0].length();
         int sx = -1, sy = -1, ex = -1, ey = -1, lx = -1, ly = -1;
-        Queue<int[]> q = new ArrayDeque<>();
-        int[][] dirt = {{1, 0}, {0, 1}, {0, -1}, {-1, 0}};
-        int[][][] dp = new int[n][m][2]; // 마지막은 L 방문 여부 - 0:방문X, 1:방문O
         int[][] boards = new int[n][m];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
@@ -27,44 +24,36 @@ class Solution {
                 }
             }
         }
-        q.offer(new int[]{sx, sy});
-        dp[sx][sy][0] = 0;
-        while (!q.isEmpty()) { // S -> L
-            int[] curr = q.poll();
-            int x = curr[0], y = curr[1];
-            for (int[] next : dirt) {
-                int dx = x + next[0], dy = y + next[1];
-                if (dx == lx && dy == ly) {
-                    dp[lx][ly][1] = dp[x][y][0] + 1;
-                    q.clear();
-                    break;
-                }
-                if (0 <= dx && dx < n && 0 <= dy && dy < m && boards[dx][dy] != 0 && dp[dx][dy][0] == 0) {
-                    dp[dx][dy][0] = dp[x][y][0] + 1;
-                    q.offer(new int[]{dx, dy});
-                }
-            }
-        }
-        if (dp[lx][ly][1] == 0)
+        int timeSL = bfs(sx, sy, lx, ly, n, m, boards);
+        if (timeSL == -1)
             return -1;
-        q.offer(new int[]{lx, ly});
-        while (!q.isEmpty()) { // L -> E
+        
+        int timeLE = bfs(lx, ly, ex, ey, n, m, boards);
+        return timeLE == -1 ? -1 : timeSL + timeLE;
+    }
+    
+    public static int bfs(int startX, int startY, int targetX, int targetY, int n, int m, int[][] boards) {
+        Queue<int[]> q = new ArrayDeque<>();
+        int[][] dirt = {{1, 0}, {0, 1}, {0, -1}, {-1, 0}};
+        int[][] dp = new int[n][m];
+        
+        q.offer(new int[]{startX, startY});
+        dp[startX][startY] = 0;
+        while (!q.isEmpty()) {
             int[] curr = q.poll();
             int x = curr[0], y = curr[1];
             for (int[] next : dirt) {
                 int dx = x + next[0], dy = y + next[1];
-                if (dx == ex && dy == ey) {
-                    dp[ex][ey][1] = dp[x][y][1] + 1;
-                    q.clear();
-                    break;
+                if (dx == targetX && dy == targetY) {
+                    dp[targetX][targetY] = dp[x][y] + 1;
+                    return dp[targetX][targetY];
                 }
-                if (0 <= dx && dx < n && 0 <= dy && dy < m && boards[dx][dy] != 0 && dp[dx][dy][1] == 0) {
-                    dp[dx][dy][1] = dp[x][y][1] + 1;
+                if (0 <= dx && dx < n && 0 <= dy && dy < m && boards[dx][dy] != 0 && dp[dx][dy] == 0) {
+                    dp[dx][dy] = dp[x][y] + 1;
                     q.offer(new int[]{dx, dy});
                 }
             }
         }
-        int answer = dp[ex][ey][1];
-        return answer == 0 ? -1 : answer;
+        return -1;
     }
 }

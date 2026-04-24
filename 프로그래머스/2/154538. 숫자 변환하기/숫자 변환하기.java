@@ -3,27 +3,18 @@ import java.util.*;
 class Solution {
     public int solution(int x, int y, int n) {
         int answer = 0;
-        Deque<int[]> q = new ArrayDeque<>();
-        q.offer(new int[]{x, 0});
-        int[] visited = new int[y+1];
+        int[] dp = new int[y+1];
+        Arrays.fill(dp, 1000001);
+        dp[x] = 0;
         
-        if (x == y)
-            return 0;
-        
-        while (!q.isEmpty()) {
-            int[] tmp = q.poll();
-            int curr = tmp[0];
-            int count = tmp[1];
-            
-            for (int node: new int[]{curr+n, curr*2, curr*3})
-                if (node == y)
-                    return count+1;
-                else if (node < y && visited[node] == 0) {
-                    visited[node]++;
-                    q.offer(new int[]{node, count+1});
-                }
+        for (int i = x; i <= y; i++) {
+            if (i + n <= y)
+                dp[i+n] = Math.min(dp[i+n], dp[i] + 1);
+            if (i * 2 <= y)
+                dp[i*2] = Math.min(dp[i*2], dp[i] + 1);
+            if (i * 3 <= y)
+                dp[i*3] = Math.min(dp[i*3], dp[i] + 1);
         }
-        
-        return -1;
+        return dp[y] == 1000001 ? -1 : dp[y];
     }
 }

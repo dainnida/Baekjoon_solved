@@ -2,18 +2,18 @@ import java.util.*;
 
 class Solution {
     boolean solution(String s) {
-        Deque<String> q = new ArrayDeque<>();
+        Deque<String> stack = new ArrayDeque<>();
 
         for (int i = 0; i < s.length(); i++) {
             if ((s.charAt(i)+"").equals("(")) 
-                q.offer("(");
+                stack.push("(");
             else {
-                if (q.isEmpty() || (q.peek()).equals(")"))
+                if (stack.isEmpty() || (stack.peek()).equals(")"))
                     return false;
-                q.poll();
+                stack.pop();
             }
         }
-        if (q.isEmpty())
+        if (stack.isEmpty())
             return true;
         return false;
     }

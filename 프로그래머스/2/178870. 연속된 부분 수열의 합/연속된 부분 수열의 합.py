@@ -1,5 +1,5 @@
 def solution(sequence, k):
-    answer = []
+    answer = [0, len(sequence)]
     start, end = 0, 0
     total = 0
     
@@ -11,7 +11,7 @@ def solution(sequence, k):
             start += 1
     
         if total == k:
-            answer.append([start, end])
+            if end - start < answer[1] - answer[0]:
+                answer = [start, end]
     
-    answer.sort(key = lambda x : (x[1] - x[0], x[0]))
-    return answer[0]
+    return answer

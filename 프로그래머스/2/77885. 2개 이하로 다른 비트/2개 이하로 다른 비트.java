@@ -3,29 +3,16 @@ class Solution {
         long[] answer = new long[numbers.length];
         
         for (int i = 0; i < numbers.length; i++) {
+            long number = numbers[i];
             
-            String numberBin = Long.toBinaryString(numbers[i]);
-            int numberLen = numberBin.length();
-            
-            for (int j = numberLen - 1; j >= 0; j--) {
-                
-                if (numberBin.charAt(j) == '0') {
-                    String result = "";
-                    if (j == numberLen - 1)
-                        result = numberBin.substring(0, j) + "1" + numberBin.substring(j+1, numberLen);
-                    else
-                        result = numberBin.substring(0, j) + "10" + numberBin.substring(j+2, numberLen);
-                    answer[i] = Long.parseLong(result, 2);
-                    break;
-                }
-            }
-            
-            if (answer[i] == 0) {
-                String result = "10" + numberBin.substring(1, numberLen);
-                answer[i] = Long.parseLong(result, 2);
+            if (number % 2 == 0) // 마지막 비트가 0이면 걔만 1로 바꾸면 끝
+                answer[i] = number + 1;
+            else {
+                // 가장 오른쪽에 나온 0만 1로 바꾸기
+                long lastZero = ~number & (number + 1);
+                answer[i] = number + (lastZero >> 1);
             }
         }
-        
         return answer;
     }
 }

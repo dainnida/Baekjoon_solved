@@ -1,7 +1,10 @@
+import java.util.*;
+
 class Solution {
     public int solution(String[][] book_time) {
         int answer = 0;
-        int[] timetable = new int[24 * 60];
+        PriorityQueue<Integer> timetable = new PriorityQueue<>();
+        Arrays.sort(book_time, (a, b) -> a[0].compareTo(b[0]));
         
         for (String[] time : book_time) {
             String[] start = time[0].split(":");
@@ -11,12 +14,11 @@ class Solution {
             int stop_time = Integer.parseInt(stop[0]) * 60 + Integer.parseInt(stop[1]) + 10;
             stop_time = Math.min(stop_time, 24 * 60); // 다음 날 청소 시간은 고려 안함
             
-            for(int i = start_time; i < stop_time; i++) {
-                timetable[i]++;
-                answer = Math.max(timetable[i], answer);
-            }
+            if (!timetable.isEmpty() && timetable.peek() <= start_time)
+                timetable.poll();
+            timetable.add(stop_time);
         }         
         
-        return answer;
+        return timetable.size();
     }
 }

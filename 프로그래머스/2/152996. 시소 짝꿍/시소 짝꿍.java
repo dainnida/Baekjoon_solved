@@ -13,7 +13,7 @@ class Solution {
             
             // 같은 몸무게
             if (count > 1)
-                answer += (count * (count - 1)) / 2;
+                answer += (count * (count - 1)) / 2; // nC2
             
             // 2 : 3
             if (weight % 2 == 0 && dic.containsKey(weight / 2 * 3))

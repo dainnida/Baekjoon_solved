@@ -11,7 +11,7 @@ class Solution {
         for (int weight : dic.keySet()) {
             long value = dic.get(weight);
             
-            // 1 : 1
+            // 같은 몸무게
             if (value > 1)
                 answer += value * (value - 1) / 2;
             

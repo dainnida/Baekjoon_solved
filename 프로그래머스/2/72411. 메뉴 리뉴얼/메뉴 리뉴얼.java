@@ -5,7 +5,6 @@ class Solution {
         List<String> answer = new ArrayList<>();
             
         for (int r : course) {
-            
             Map<String, Integer> menus = new HashMap<>();
 
             for (String order : orders) {

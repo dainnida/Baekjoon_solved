@@ -9,6 +9,7 @@ class Solution {
                 board[i][j] = columns * (i - 1) + j;
         }
         
+        // 회전하기
         for (int i = 0; i < queries.length; i++) {
             int x1 = Math.min(queries[i][0], queries[i][2]), y1 = Math.min(queries[i][1], queries[i][3]), x2 = Math.max(queries[i][0], queries[i][2]), y2 = Math.max(queries[i][1], queries[i][3]);
             int min = 10001;

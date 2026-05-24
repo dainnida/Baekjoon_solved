@@ -12,7 +12,7 @@ class Solution {
             if (a[0].equals(b[0]))
                 return a[1].compareTo(b[1]);
             return a[0].compareTo(b[0]);
-            });
+        });
         
         answer.add("ICN");
         backtrack(0, "ICN", tickets, visited);

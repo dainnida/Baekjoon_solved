@@ -10,11 +10,15 @@ class Solution {
         
         Arrays.sort(strNums, (a, b) -> (b + a).compareTo(a + b));
         
-        answer = String.join("", strNums);
+        StringBuilder sb = new StringBuilder();
+        for (String str : strNums)
+            sb.append(str);
         
-        if (answer.charAt(0) == '0')
+        //answer = String.join("", strNums);
+        
+        if (sb.charAt(0) == '0')
             return "0";
         
-        return answer;
+        return sb.toString();
     }
 }

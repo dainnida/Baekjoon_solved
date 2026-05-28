@@ -4,7 +4,7 @@ class Solution {
         int[][] dp = new int[n+1][m+1];
         // boolean[][] water = new boolean[n+1][m+1];
         
-        if (puddles.length > 0) {
+        if (puddles.length > 0) { // 물웅덩이 0개이면 접근 불가
             for (int[] puddle : puddles)
                 // water[puddle[1]][puddle[0]] = true;   
                 dp[puddle[1]][puddle[0]] = -1;   

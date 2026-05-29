@@ -8,12 +8,8 @@ class Solution {
         for (int i = 0; i < 24; i++) {
             int num = players[i];
             
-            // 이용자 없으면 넘어감
-            if (num == 0)
-                continue;
-            
             // 시간 지난 서버 반납
-            while (!q.isEmpty() && q.peek() + k <= i) {
+            while (!q.isEmpty() && q.peek() + k == i) {
                 q.poll();
             }
             

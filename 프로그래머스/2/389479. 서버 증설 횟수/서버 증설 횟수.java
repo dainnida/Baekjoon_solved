@@ -21,7 +21,8 @@ class Solution {
             int server = q.size();
             // 서버 증설 필요
             if (num >= (server + 1) * m) {
-                int count = (num - (server * m)) / m;
+                // int count = (num - (server * m)) / m;
+                int count = num / m - server;
                 answer += count;
                 for (int j = 0; j < count; j++)
                     q.offer(i);

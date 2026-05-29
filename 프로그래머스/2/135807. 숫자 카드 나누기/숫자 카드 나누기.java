@@ -15,9 +15,11 @@ class Solution {
         // 1번 검사 : 그 수로 영희의 카드를 나눌 수 있는지 확인
         if (gcdA == 1)
             ableOne = false;
-        for (int b : arrayB) {
-            if (b % gcdA == 0)
-                ableOne = false;
+        else {
+            for (int b : arrayB) {
+                if (b % gcdA == 0)
+                    ableOne = false;
+            }
         }
         
         // 2번 검사 : 영희의 모든 카드 나누는 수 구하기
@@ -28,9 +30,11 @@ class Solution {
         // 2번 검사 : 그 수로 철수의 카드를 나눌 수 있는지 확인
         if (gcdB == 1)
             ableTwo = false;
-        for (int a : arrayA) {
-            if (a % gcdB == 0)
-                ableTwo = false;
+        else {
+            for (int a : arrayA) {
+                if (a % gcdB == 0)
+                    ableTwo = false;
+            }
         }
         
         if (!ableOne && !ableTwo) // 1, 2 다 불가

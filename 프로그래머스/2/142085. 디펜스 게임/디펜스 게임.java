@@ -17,6 +17,7 @@ class Solution {
                     n += pq.poll();
                     k--;
                 }
+                // 무족권을 쓸 수도 없다면 종료
                 else
                     return answer;
             }

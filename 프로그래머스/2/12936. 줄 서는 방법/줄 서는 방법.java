@@ -6,6 +6,7 @@ class Solution {
         List<Integer> people = new ArrayList<>();
         for (int i = 1; i <= n; i++)
             people.add(i);
+        
         // 인덱스 매칭을 위해 k 하나 깎기
         k--;
         
@@ -20,7 +21,6 @@ class Solution {
             people.remove(index);
             k %= count;
         }
-        
         
         return answer;
     }

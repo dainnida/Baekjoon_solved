@@ -12,13 +12,15 @@ class Solution {
         
         for (int i = 0; i < n; i++) {
             // 뒤에 남은 자리수의 팩토리얼 구하기
-            long count = factorial(n - 1 - i);
+            long count = factorial(n - (i + 1));
             
+            // 몫에 해당하는 만큼 그룹이 지나감. 사전순이므로 앞에서부터 index번째 숫자.
             int index = (int) (k / count);
             answer[i] = people.get(index);
             
             // 사용한 숫자 제거
             people.remove(index);
+            // 나머지만큼 아직 더 돌아봐야 함
             k %= count;
         }
         

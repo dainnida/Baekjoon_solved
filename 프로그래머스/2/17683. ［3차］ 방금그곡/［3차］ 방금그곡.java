@@ -3,11 +3,7 @@ import java.util.*;
 class Solution {
     public String solution(String m, String[] musicinfos) {
         // C#를 중간에 잘라서 C와 같다고 오해하지 않도록 하나의 알파벳으로 치환
-        m = m.replaceAll("C#", "c")
-            .replaceAll("D#", "d")
-            .replaceAll("F#", "f")
-            .replaceAll("G#", "g")
-            .replaceAll("A#", "a");
+        m = replaceTone(m);
         
         // 재생 시간을 내림차순으로 정렬
         Arrays.sort(musicinfos, (a, b) -> {
@@ -25,11 +21,7 @@ class Solution {
             String playMelody = "";
             
             // C#를 중간에 잘라서 C와 같다고 오해하지 않도록 하나의 알파벳으로 치환
-            originMelody = originMelody.replaceAll("C#", "c")
-                .replaceAll("D#", "d")
-                .replaceAll("F#", "f")
-                .replaceAll("G#", "g")
-                .replaceAll("A#", "a");
+            originMelody = replaceTone(originMelody);
             
             // 재생 시간만큼 재생됨
             if (playTime <= originMelody.length()) {
@@ -56,5 +48,13 @@ class Solution {
         int minute = Integer.parseInt(time_arr[1]);
         
         return 60 * hour + minute;
+    }
+    
+    public String replaceTone(String m) {
+        return m.replaceAll("C#", "c")
+            .replaceAll("D#", "d")
+            .replaceAll("F#", "f")
+            .replaceAll("G#", "g")
+            .replaceAll("A#", "a");
     }
 }

@@ -4,9 +4,19 @@ class Solution
     {
         int n = board.length;
         int m = board[0].length;
-        if (n == 1 || m == 1)
-            return 1;
+        if (n == 1 || m == 1) { // 만들 수 있는 최대로 큰 정사각형의 크기는 1
+            // 전체를 다 봐서 하나라도 1이라면 1 크기의 정사각형 만들 수 있음
+            for (int x = 0; x < n; x++) {
+                for (int y = 0; y < m; y++) {
+                    if (board[x][y] == 1)
+                        return 1;
+                }
+            }
+            // 모든 수가 0이라면 정사각형 만들 수 없음
+            return 0;
+        }
 
+        // 모든 수가 0이라면 정사각형 만들 수 없음
         int answer = 0;
         
         // dp에 저장되는 값은, 정사각형의 가장 오른쪽 아래의 값을 기준으로[x][y]

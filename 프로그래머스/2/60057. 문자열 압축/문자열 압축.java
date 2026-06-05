@@ -3,10 +3,6 @@ import java.util.*;
 class Solution {
     public int solution(String s) {
         int answer = s.length();
-        List<Integer> divisors = getDivisor(s.length());
-        
-        if (divisors.isEmpty()) // 소수라 자를 수 없음
-            return answer;
             
         int last = s.length() / 2;
         for (int divisor = 1; divisor <= last; divisor++) {
@@ -52,14 +48,5 @@ class Solution {
         }
         
         return answer;
-    }
-    
-    public List<Integer> getDivisor(int n) {
-        List<Integer> lst = new ArrayList<>();
-        for (int i = 1; i < n; i++) {
-            if (n % i == 0)
-                lst.add(i);
-        }
-        return lst;
     }
 }
